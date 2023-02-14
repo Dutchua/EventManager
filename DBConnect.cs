@@ -17,6 +17,12 @@ namespace EventManager
             {
                 Console.WriteLine(e);
             }
-        }        
+        }
+
+        public void Disconnect()
+        {
+            if(conn is not null)
+            conn.Close();
+        }
     }
 }
