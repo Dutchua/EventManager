@@ -1,0 +1,6 @@
+#VSCode Files
+.vs/
+.vscode/
+.classpath
+.project
+.settings/
