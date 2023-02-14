@@ -4,8 +4,6 @@ namespace EventManager
 {
     class EventManager
     {
-        protected DBConnect DBConnection = new DBConnect();
-
         public static void Main(string[] args)
         {
             EventManager eventManager = new EventManager();
@@ -15,14 +13,8 @@ namespace EventManager
 
         public void Run()
         {
-            DBConnection.Connect();
             DBOperations ops = new DBOperations();
-        }
-
-        public void Execute(string sqlcommand)
-        {
-            NpgsqlCommand command = new NpgsqlCommand(sqlcommand, DBConnection.GetConn());
-            command.ExecuteNonQuery();
+            ops.DBSelect("AttendeeDetails");
         }
     }
 }
