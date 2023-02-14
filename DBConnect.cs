@@ -4,14 +4,13 @@ namespace EventManager
 {
     class DBConnect
     {
-        string connString = "Host=localhost;Port=5432;Username=postgres;Password=123456;Database=PropertyManager";
         private NpgsqlConnection? conn;
 
         public void Connect()
         {
             try
             {
-                conn = new NpgsqlConnection(connString);
+                conn = new NpgsqlConnection(Settings.connString);
                 conn.Open();
             }catch (Exception e)
             {
