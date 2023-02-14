@@ -23,5 +23,10 @@ namespace EventManager
             if(conn is not null)
             conn.Close();
         }
+
+        public NpgsqlConnection GetConn()
+        {
+            return conn;
+        }
     }
 }
