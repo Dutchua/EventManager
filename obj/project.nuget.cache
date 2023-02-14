@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZySe9IStY29xgU3g3n09U8ZwZ5CddXlpJFCL8SNx6qcHzVHxelu19x0l8zEHhfvLTagrN9sRcY0X+tGayhhpMw==",
+  "success": true,
+  "projectFilePath": "C:\\BBD\\C# Fundamentals\\EventManager\\EventManager.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bbdnet2871\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\bbdnet2871\\.nuget\\packages\\npgsql\\7.0.1\\npgsql.7.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
