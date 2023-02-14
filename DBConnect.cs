@@ -4,18 +4,19 @@ namespace EventManager
 {
     class DBConnect
     {
-        private NpgsqlConnection conn;
+        string connString = "Host=localhost;Port=5432;Username=postgres;Password=123456;Database=PropertyManager";
+        private NpgsqlConnection? conn;
 
-        public async void connection()
+        public void Connect()
         {
-            var connString = "Host='localhost';Username='postgres';Password='123456';Database='PropertyManager";
-            await using conn = new NpgsqlConnection(connString);
-            await conn.OpenAsync()
-        }
-
-        public async void CloseConnection()
-        {
-            await conn.CloseAsync()
-        }
+            try
+            {
+                conn = new NpgsqlConnection(connString);
+                conn.Open();
+            }catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }        
     }
 }
