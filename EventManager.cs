@@ -1,9 +1,10 @@
 using System;
+using Npgsql;
 namespace EventManager
 {
     class EventManager
     {
-        public DBConnect DBConnection = new DBConnect();
+        protected DBConnect DBConnection = new DBConnect();
 
         public static void Main(string[] args)
         {
@@ -14,7 +15,14 @@ namespace EventManager
 
         public void Run()
         {
+            DBConnection.Connect();
+            DBOperations ops = new DBOperations();
+        }
 
+        public void Execute(string sqlcommand)
+        {
+            NpgsqlCommand command = new NpgsqlCommand(sqlcommand, DBConnection.GetConn());
+            command.ExecuteNonQuery();
         }
     }
 }
