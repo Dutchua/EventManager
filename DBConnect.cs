@@ -1,5 +1,5 @@
 ﻿using Npgsql;
-using System;
+using System.Data;
 namespace EventManager
 {
     class DBConnect
@@ -20,7 +20,25 @@ namespace EventManager
 
         public void Disconnect()
         {
-            conn.Close();
+            try
+            {
+                conn.Close();
+            }catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        public void ConnState()
+        {
+            if(conn.State == ConnectionState.Closed)
+            {
+                Connect();
+            }
+            if(conn.State != ConnectionState.Closed)
+            {
+                Disconnect();
+            }
         }
 
         public NpgsqlConnection GetConn()
