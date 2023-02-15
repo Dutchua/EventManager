@@ -4,7 +4,7 @@ namespace EventManager
 {
     class DBConnect
     {
-        private NpgsqlConnection? conn;
+        private NpgsqlConnection conn;
 
         public void Connect()
         {
@@ -20,7 +20,6 @@ namespace EventManager
 
         public void Disconnect()
         {
-            if(conn is not null)
             conn.Close();
         }
 
