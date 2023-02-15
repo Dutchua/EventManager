@@ -21,6 +21,7 @@ namespace EventManager
             opmanager.surname = "Jennings";
             opmanager.company = "BBD";
             opmanager.accessnumber = "5125591f-e21b-4e1e-9c6b-3f65606ed79d";
+            opmanager.table = "attendeeDetails";
             ChooseOperation(opmanager);
 
         }
@@ -34,6 +35,9 @@ namespace EventManager
                     break;
                 case "INSERT":
                     ops.DBInsert(opmanager);
+                    break;
+                default:
+                    Console.WriteLine("Please choose a valid Query");
                     break;
             }
         }
