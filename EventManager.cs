@@ -15,7 +15,7 @@ namespace EventManager
         public void Run()
         {
             OperationsManager opmanager = new OperationsManager();
-            opmanager.operation = "select";
+            opmanager.operation = "INSERT";
             opmanager.personID = 1;
             opmanager.name = "Josh";
             opmanager.surname = "Jennings";
@@ -29,10 +29,10 @@ namespace EventManager
         {
             switch (opmanager.operation)
             {
-                case "select":
+                case "SELECT":
                     ops.DBSelect(opmanager);
                     break;
-                case "insert":
+                case "INSERT":
                     ops.DBInsert(opmanager);
                     break;
             }
