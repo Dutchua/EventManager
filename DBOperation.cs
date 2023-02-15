@@ -27,6 +27,19 @@ namespace EventManager
             using (NpgsqlCommand command = new NpgsqlCommand(sqlcommand, DBConnection.GetConn()))
             {
                 command.Parameters.AddWithValue("personid", opsManager.personID);
+                command.ExecuteNonQuery();
+            }
+            DBConnection.Disconnect();
+        }
+
+        public void DBDelete(OperationsManager opsManager)
+        {
+            string sqlcommand =  $"DELETE FROM {opsManager.table} WHERE personid=(@personID)";
+            DBConnection.Connect();
+            using (NpgsqlCommand command = new NpgsqlCommand(sqlcommand, DBConnection.GetConn()))
+            {
+                command.Parameters.AddWithValue("personid", opsManager.personID);
+                command.ExecuteNonQuery();
             }
             DBConnection.Disconnect();
         }

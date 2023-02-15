@@ -15,8 +15,8 @@ namespace EventManager
         public void Run()
         {
             OperationsManager opmanager = new OperationsManager();
-            opmanager.operation = "INSERT";
-            opmanager.personID = 1;
+            opmanager.operation = "DELETE";
+            opmanager.personID = 3;
             opmanager.name = "Josh";
             opmanager.surname = "Jennings";
             opmanager.company = "BBD";
@@ -35,6 +35,9 @@ namespace EventManager
                     break;
                 case "INSERT":
                     ops.DBInsert(opmanager);
+                    break;
+                case "DELETE":
+                    ops.DBDelete(opmanager);
                     break;
                 default:
                     Console.WriteLine("Please choose a valid Query");
