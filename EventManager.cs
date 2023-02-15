@@ -4,6 +4,7 @@ namespace EventManager
 {
     class EventManager
     {
+        DBOperations ops = new DBOperations();
         public static void Main(string[] args)
         {
             EventManager eventManager = new EventManager();
@@ -13,20 +14,28 @@ namespace EventManager
 
         public void Run()
         {
-            DBOperations ops = new DBOperations();
-
-
-        }
-
-        public OperationsManager getData()
-        {
             OperationsManager opmanager = new OperationsManager();
+            opmanager.operation = "select";
             opmanager.personID = 1;
             opmanager.name = "Josh";
             opmanager.surname = "Jennings";
             opmanager.company = "BBD";
             opmanager.accessnumber = "5125591f-e21b-4e1e-9c6b-3f65606ed79d";
-            return opmanager;
+            ChooseOperation(opmanager);
+
+        }
+
+        public void ChooseOperation(OperationsManager opmanager)
+        {
+            switch (opmanager.operation)
+            {
+                case "select":
+                    ops.DBSelect(opmanager);
+                    break;
+                case "insert":
+                    ops.DBInsert(opmanager);
+                    break;
+            }
         }
     }
 }

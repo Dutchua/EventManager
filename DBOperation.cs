@@ -5,9 +5,9 @@ namespace EventManager
     class DBOperations
     {
         private DBConnect DBConnection = new DBConnect();
-        public void DBInsert(string table, OperationsManager opsManager)
+        public void DBInsert(OperationsManager opsManager)
         {
-            string sqlcommand = $"INSERT INTO {table} (name, surname, company, accessnumber) VALUES (@name, @surname, @company, @accessnumber);";
+            string sqlcommand = $"INSERT INTO {opsManager.table} (name, surname, company, accessnumber) VALUES (@name, @surname, @company, @accessnumber);";
             DBConnection.Connect();
             using (NpgsqlCommand command = new NpgsqlCommand(sqlcommand, DBConnection.GetConn()))
             {
@@ -20,9 +20,9 @@ namespace EventManager
             DBConnection.Disconnect();
         }
 
-        public void DBSelect(string table, OperationsManager opsManager)
+        public void DBSelect(OperationsManager opsManager)
         {
-            string sqlcommand = $"SELECT * FROM {table} WHERE personid = @personid";
+            string sqlcommand = $"SELECT * FROM {opsManager.table} WHERE personid = @personid";
             DBConnection.Connect();
             using (NpgsqlCommand command = new NpgsqlCommand(sqlcommand, DBConnection.GetConn()))
             {
