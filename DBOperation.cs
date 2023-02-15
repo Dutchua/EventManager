@@ -43,5 +43,24 @@ namespace EventManager
             }
             DBConnection.Disconnect();
         }
+
+        public void DBUpdate(OperationsManager opsManager)
+        {
+            string sqlcommand =  $@"UPDATE {opsManager.table}
+                SET name = @name, surname = @surname, company = @company, accessNumber = @accessNumber
+                WHERE personid = @personid";
+            DBConnection.Connect();
+            using (NpgsqlCommand command = new NpgsqlCommand(sqlcommand, DBConnection.GetConn()))
+            {
+                command.Parameters.AddWithValue("personid", opsManager.personID);
+                command.Parameters.AddWithValue("name", opsManager.name);
+                command.Parameters.AddWithValue("surname", opsManager.surname);
+                command.Parameters.AddWithValue("company", opsManager.company);
+                command.Parameters.AddWithValue("accessNumber", opsManager.accessnumber);
+
+                command.ExecuteNonQuery();
+            }
+            DBConnection.Disconnect();
+        }
     }
 }

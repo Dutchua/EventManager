@@ -15,11 +15,11 @@ namespace EventManager
         public void Run()
         {
             OperationsManager opmanager = new OperationsManager();
-            opmanager.operation = "DELETE";
-            opmanager.personID = 3;
-            opmanager.name = "Josh";
-            opmanager.surname = "Jennings";
-            opmanager.company = "BBD";
+            opmanager.operation = "UPDATE";
+            opmanager.personID = 1;
+            opmanager.name = "Liam";
+            opmanager.surname = "Quick";
+            opmanager.company = "Investec";
             opmanager.accessnumber = "5125591f-e21b-4e1e-9c6b-3f65606ed79d";
             opmanager.table = "attendeeDetails";
             ChooseOperation(opmanager);
@@ -38,6 +38,9 @@ namespace EventManager
                     break;
                 case "DELETE":
                     ops.DBDelete(opmanager);
+                    break;
+                case "UPDATE":
+                    ops.DBUpdate(opmanager);
                     break;
                 default:
                     Console.WriteLine("Please choose a valid Query");
