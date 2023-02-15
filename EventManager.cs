@@ -14,14 +14,9 @@ namespace EventManager
 
         public void Run()
         {
-            OperationsManager opmanager = new OperationsManager();
-            opmanager.operation = IOperations.Operations.INSERT;
-            opmanager.personID = 1;
-            opmanager.name = "Liam";
-            opmanager.surname = "Quick";
-            opmanager.company = "Investec";
-            opmanager.accessnumber = "5125591f-e21b-4e1e-9c6b-3f65606ed79d";
-            opmanager.table = "attendeeDetails";
+            OperationsManager opmanager = new OperationsManager(1,"Josh", "Jennings","BBD", 
+                                                                "5125591f-e21b-4e1e-9c6b-3f65606ed79d", 
+                                                                "attendeeDetatils", IOperations.Operations.INSERT); 
             ChooseOperation(opmanager);
 
         }
