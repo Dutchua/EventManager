@@ -2,7 +2,7 @@ using System;
 using Npgsql;
 namespace EventManager
 {
-    class EventManager
+    class EventManager : IOperations
     {
         DBOperations ops = new DBOperations();
         public static void Main(string[] args)
@@ -15,7 +15,7 @@ namespace EventManager
         public void Run()
         {
             OperationsManager opmanager = new OperationsManager();
-            opmanager.operation = "UPDATE";
+            opmanager.operation = IOperations.Operations.INSERT;
             opmanager.personID = 1;
             opmanager.name = "Liam";
             opmanager.surname = "Quick";
@@ -30,16 +30,16 @@ namespace EventManager
         {
             switch (opmanager.operation)
             {
-                case "SELECT":
+                case IOperations.Operations.SELECT:
                     ops.DBSelect(opmanager);
                     break;
-                case "INSERT":
+                case IOperations.Operations.INSERT:
                     ops.DBInsert(opmanager);
                     break;
-                case "DELETE":
+                case IOperations.Operations.DELETE:
                     ops.DBDelete(opmanager);
                     break;
-                case "UPDATE":
+                case IOperations.Operations.UPDATE:
                     ops.DBUpdate(opmanager);
                     break;
                 default:

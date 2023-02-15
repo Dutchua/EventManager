@@ -2,7 +2,7 @@ namespace EventManager
 {
     class OperationsManager
     {
-        public string operation {get;set;}
+        public IOperations.Operations operation {get;set;}
         public int personID {get;set;}
         public string name {get;set;}
         public string surname {get;set;}
